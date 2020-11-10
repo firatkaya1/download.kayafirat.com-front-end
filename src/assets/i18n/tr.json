@@ -1,0 +1,54 @@
+
+{
+    "main": {
+        "welcome":"Merhaba,",
+        "welcome2":"İndirme servisime hoşgeldin.",
+        "welcome3":" Burayı kısaca upload ettiğim dosyalarımı kalıcı bir şekilde paylaşmak ve silinme korkusu olmadan güvenle saklamak için oluşturdum. ",
+        "welcome4": "İndirmek istediğiniz dosyaları buradan indirebilirsiniz. ",
+        "welcome5": "İndirme sorunu yaşadığınız dosyaları ",
+        "welcome6":"bana bildirebilirsiniz, ", 
+        "welcome7":"sizler için hızlıcana çözüme kavuşturabilirim.",
+        "welcome8":"Eğer yeterince hızlı olmadığımı düşünüyorsan bana direk ",
+        "welcome9":" atabilirsin.",
+        "welcome10":"Hoşçakalın.."
+    },
+    "contact" : {
+        "name":"İsminiz",
+        "emailAddress":"E-posta Adresiniz",
+        "emailInfo":"E-posta adresiniz kesinlikle paylaşılmaz.",
+        "message":"Mesajınız",
+        "messageInfo":"Lütfen mesajınızı yazınız.",
+        "noBot":"Robot olmadığını kanıtla.",
+        "clear":"Temizle",
+        "send":"Gönder"
+    },
+    "download" : {
+        "fileName":"Dosya Adı :",
+        "fileSize":"Dosya Boyutu :",
+        "fileUploadDate":"Yüklenme Tarihi :",
+        "maxDownload":"Toplam İndirme :",
+        "maxPeople":" kişi indirdi.",
+        "uploadedBy":"Yükleyen :",
+        "download":"İndir",
+        "problem":"Bir sorun mu var ?",
+        "noBot":"İnsan olduğunu kanıtla."
+    },
+    "language" : {
+        "tr":"Türkçe",
+        "en":"English"
+    },
+    "notfound":{
+        "nf":"Bulunamadı",
+        "message":"Girmeye çalıştığınız sayfa ya da indirmek istediğiniz link ne yazık ki mevcut değil. Bu sorunu paylaşmak istiyorsanız benimle iletişime geçebilirsiniz. En kısa zamanda çözmeye çalışacağım.",
+        "message2":" Anlayışınız için teşekkür ederim.",
+        "contact":"İletişime Geç"
+    },
+    "notpermission":{
+        "nf":"Yetkisiz Erişim",
+        "message":"Girmeye çalıştığınız sayfa'da güvenlik ağımıza takıldın. Erişmek istediğin link'e ayrıcalık tanındığı için giriş yapman mümkün değil Bunun bir sorun olduğunu düşünüyorsan lütfen benimle iletişime geç.",
+        "message2":" Anlayışınız için teşekkür ederim.",
+        "contact":"İletişime Geç"
+    }
+    
+    
+}

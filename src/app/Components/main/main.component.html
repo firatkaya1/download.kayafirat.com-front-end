@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-md-6 mx-auto p-0">
+          <div class="card bg-light shadow">
+            <div class="pt-4 pl-4 pr-4 d-block">
+              <b class=" lead font-weight-bold text-kaya text-left">/download</b>
+              <b class="float-right">
+                <a class="c-pointer" (click)="changeLanguage('tr')" [ngClass]="this.translate.getDefaultLang()==='tr' ? 'text-kaya':'' ">
+                  <img src="/assets/turkey.svg" width="25px" height="35px" alt="turkish-flag">
+                  <span  [translate]="'language.tr'"></span>
+                </a> | 
+                <a class="c-pointer text-black" [ngClass]="this.translate.getDefaultLang()==='en' ? 'text-kaya':'' " (click)="changeLanguage('en')">
+                  <img src="/assets/uk.svg" width="25px" height="35px" alt="uk-flag">
+                  <span  [translate]="'language.en'"  ></span>
+                </a>
+              </b>
+            </div>              <img src="/assets/F.svg" width="70px" height="70px" class="card-img-top" alt="logo-icon">
+              <div class="card-body">
+                <div class="row">
+                    <p class="p-4 lead" >
+                      <span class="font-weight-bold" [translate]="'main.welcome'"></span><br>
+                      <span [translate]="'main.welcome2'"></span>. 
+                      <span [translate]="'main.welcome3'"></span> 
+                      <span [translate]="'main.welcome4'"></span> 
+                      <span [translate]="'main.welcome5'"></span> 
+                      <a routerLink="/contact" routerLinkActive="active" > <span [translate]="'main.welcome6'"></span> </a>,
+                      <span [translate]="'main.welcome7'"></span>
+                      <br>
+                      <span [translate]="'main.welcome8'"></span> 
+                      <span [translate]="'main.welcome9'"></span>
+                      <br>
+                      <span class="font-weight-bold text-right mt-2">
+                        <span [translate]="'main.welcome10'"></span>
+                      </span>
+                    </p>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>

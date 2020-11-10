@@ -1,0 +1,54 @@
+
+{
+    "main": {
+        "welcome":"Hello,",
+        "welcome2":"Welcome to my download service.",
+        "welcome3":" I created it to share my uploaded files permanently and safely without fear of being deleted.",
+        "welcome4": " You can download the files you want to download from here.",
+        "welcome5": " If you run into a problem, ",
+        "welcome6":"contact with me ", 
+        "welcome7":"I can help you as soon as possible.",
+        "welcome8":"Direct mail to me if you think I'm not fast enough",
+        "welcome9":"",
+        "welcome10":"Good bye.."
+    },
+    "contact" : {
+        "name":"Your name",
+        "emailAddress":"Email Address",
+        "emailInfo":"This email address will not share other people.",
+        "message":"Your message",
+        "messageInfo":"Please, tell me how can i help you ?",
+        "noBot":"Are you human ?",
+        "clear":"Clear",
+        "send":"Submit"
+    },
+    "download" : {
+        "fileName":"File Name :",
+        "fileSize":"File Size :",
+        "fileUploadDate":"File Uploaded Date :",
+        "maxDownload":"Total Download :",
+        "maxPeople":" people downloaded.",
+        "uploadedBy":"Uploaded By :",
+        "download":"Download",
+        "problem":"İs there a problem ?",
+        "noBot":"Are you human ?"
+    },
+    "language" : {
+        "tr":"Türkçe",
+        "en":"English"
+    },
+    "notfound":{
+        "nf":"Not Found",
+        "message":"Unfortunately, the page you are trying to enter or the link you want to download is not available. You can contact me if you want to share this problem. I will try to solve it as soon as possible.",
+        "message2":"Thank you for your understanding.",
+        "contact":"Contact with me"
+    },
+    "notpermission":{
+        "nf":"Permission Denied",
+        "message":"You are stuck in our safety net on the page you are trying to enter. You cannot view because the link you want to access is privileged. If you think this is a problem, please contact me.",
+        "message2":"Thank you for your understanding.",
+        "contact":"Contact with me"
+    }
+    
+    
+}
