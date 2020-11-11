@@ -1,5 +1,7 @@
+import { ContactService } from './../../Core/Service/ContactService/contactService';
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -8,14 +10,23 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(public translate: TranslateService) {
+  private captcha:string = "";
+  
+  constructor(public translate: TranslateService,private contactService:ContactService) {
     translate.setDefaultLang("en");
   }
 
+  contactDetails = new FormGroup({
+    emailAddress:new FormControl(null,[Validators.required,Validators.email]),
+    message     :new FormControl(null,[Validators.required,Validators.minLength(50)]),
+    name        :new FormControl(null,[Validators.required]),
+  }); 
+
   ngOnInit(): void {
   }
+
   resolved(captchaResponse:string) {
-    console.log(captchaResponse);
+    this.captcha = captchaResponse;
   }
   changeLanguage(lang:string){
     if(lang == 'tr'){
@@ -25,4 +36,8 @@ export class ContactComponent implements OnInit {
     }
   }
   
+  sendContact(){
+    this.contactService.addContact(this.contactDetails,this.captcha);
+  }
+
 }

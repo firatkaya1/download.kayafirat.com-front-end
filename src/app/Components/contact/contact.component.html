@@ -19,28 +19,50 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-9 mx-auto">
-                      <div class="form-group">
-                        <label for="name" [translate]="'contact.name'"></label>
-                        <input type="text" class="form-control" id="name" aria-describedby="name">
-                      </div>
-                      <div class="form-group">
-                        <label for="emailAddress" [translate]="'contact.emailAddress'"></label>
-                        <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted" [translate]="'contact.emailInfo'"></small>
-                      </div>
-                      <div class="form-group">
-                        <label for="message" [translate]="'contact.message'"></label>
-                        <textarea class="form-control" id="message" [placeholder]="'contact.messageInfo' | translate" rows="5"></textarea>
-                      </div>
-                      <div class="form-group mx-auto">
-                        <re-captcha (resolved)="resolved($event)" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
-                        <small id="emailHelp" class="form-text text-muted" [translate]="'contact.noBot'"></small>
+                      <form [formGroup]="contactDetails">
+                        <div class="form-group">
+                          <label for="name" [translate]="'contact.name'"></label>
+                          <input type="text" class="form-control" id="name" aria-describedby="name" 
+                          formControlName="name"
+                          [class.is-valid]="contactDetails.get('name').valid" 
+                          [class.is-invalid]="contactDetails.get('name').invalid && (contactDetails.get('name').dirty || contactDetails.get('name').touched)">
+                          <div *ngIf="contactDetails.get('name').invalid && (contactDetails.get('name').dirty || contactDetails.get('name').touched)" class="text-danger">
+                            <div *ngIf="contactDetails.get('name').errors.required" [translate]="'contact.nameRequired'"></div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="emailAddress" [translate]="'contact.emailAddress'"></label>
+                          <input type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" 
+                          formControlName="emailAddress"
+                          [class.is-valid]="contactDetails.get('emailAddress').valid" 
+                          [class.is-invalid]="contactDetails.get('emailAddress').invalid && (contactDetails.get('emailAddress').dirty || contactDetails.get('emailAddress').touched)">
+                          <small id="emailHelp" class="form-text text-muted" [translate]="'contact.emailInfo'"></small>
+                          <div *ngIf="contactDetails.get('emailAddress').invalid && (contactDetails.get('emailAddress').dirty || contactDetails.get('emailAddress').touched)" class="text-danger">
+                            <div *ngIf="contactDetails.get('emailAddress').errors.email" [translate]="'contact.emailRequired'"></div>
+                            <div *ngIf="contactDetails.get('emailAddress').errors.required" [translate]="'contact.emailNotBlank'"></div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="message" [translate]="'contact.message'"></label>
+                          <textarea class="form-control" formControlName="message" id="message" [placeholder]="'contact.messageInfo' | translate" rows="5"
+                          [class.is-valid]="contactDetails.get('message').valid" 
+                          [class.is-invalid]="contactDetails.get('message').invalid && (contactDetails.get('message').dirty || contactDetails.get('message').touched)"></textarea>
+                          <div *ngIf="contactDetails.get('message').invalid && (contactDetails.get('message').dirty || contactDetails.get('message').touched)" class="text-danger">
+                            <div *ngIf="contactDetails.get('message').errors.required" [translate]="'contact.messageRequired'"></div>
+                            <div *ngIf="contactDetails.get('message').errors.minlength" [translate]="'contact.messageMinLength'"></div>
+                          </div>
+                        
+                        </div>
+                        <div class="form-group mx-auto">
+                          <re-captcha (resolved)="resolved($event)" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
+                          <small id="emailHelp" class="form-text text-muted" [translate]="'contact.noBot'"></small>
 
-                      </div>
-                      <div class="form-group text-right">
-                        <button class="btn btn-danger mr-3">{{ 'contact.clear' | translate }}</button>
-                        <button class="btn btn-success">{{ 'contact.send' | translate }}</button>
-                      </div> 
+                        </div>
+                        <div class="form-group text-right">
+                          <button class="btn btn-danger mr-3">{{ 'contact.clear' | translate }}</button>
+                          <button class="btn btn-success">{{ 'contact.send' | translate }}</button>
+                        </div> 
+                      </form>
                     </div>
                   </div>
                 </div>

@@ -20,7 +20,14 @@
         "messageInfo":"Please, tell me how can i help you ?",
         "noBot":"Are you human ?",
         "clear":"Clear",
-        "send":"Submit"
+        "send":"Submit",
+        "nameRequired":"This place can not be blank.",
+        "emailRequired":"This place must be email.",
+        "emailNotBlank":"This place can not be blank.",
+        "messageRequired":"This place can not be blank.",
+        "messageMinLength":"This place minimum length must be 50."
+
+        
     },
     "download" : {
         "fileName":"File Name :",

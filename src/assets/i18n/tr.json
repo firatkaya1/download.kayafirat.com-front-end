@@ -20,7 +20,12 @@
         "messageInfo":"Lütfen mesajınızı yazınız.",
         "noBot":"Robot olmadığını kanıtla.",
         "clear":"Temizle",
-        "send":"Gönder"
+        "send":"Gönder",
+        "nameRequired":"Bu alan boş bırakılamaz.",
+        "emailRequired":"Bu alana email girilmesi zorunludur.",
+        "emailNotBlank":"Bu alan boş bırakılamaz.",
+        "messageRequired":"Bu alan boş bırakılamaz.",
+        "messageMinLength":"Mesajınız minimum 50 karakter içermelidir."
     },
     "download" : {
         "fileName":"Dosya Adı :",

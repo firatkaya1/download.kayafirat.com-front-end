@@ -4,6 +4,7 @@ import { DownloadComponent } from './Components/download/download.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +32,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     AppRoutingModule,
     RecaptchaModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
