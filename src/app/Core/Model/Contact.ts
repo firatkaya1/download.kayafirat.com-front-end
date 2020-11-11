@@ -1,5 +1,5 @@
 export interface Contact {
-    contactName: string;
-    contactMessage:string;
-    contactEmail:string;
+    name: string;
+    email:string;
+    message:string;
 }
