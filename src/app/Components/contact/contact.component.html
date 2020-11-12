@@ -55,14 +55,14 @@
                             <div *ngIf="contactDetails.get('message').errors.minlength" [translate]="'contact.messageMinLength'"></div>
                           </div>
                         </div>
-                        <div class="form-group mx-auto">
-                          <re-captcha (resolved)="resolved($event)" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
+                        <div class="form-group mx-auto" style="transform:scale(1);transform-origin:0;">
+                          <re-captcha #captchaRef="reCaptcha"
+                          formControlName="recaptchaReactive" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
                           <small id="emailHelp" class="form-text text-muted" [translate]="'contact.noBot'"></small>
-
                         </div>
                         <div class="form-group text-right">
-                          <button class="btn btn-danger mr-3">{{ 'contact.clear' | translate }}</button>
-                          <button class="btn btn-success" (click)="sendContact()" [disabled]="contactDetails.invalid" *ngIf="captcha!.length == 0 ? false : true">{{ 'contact.send' | translate }}</button>
+                          <button class="btn btn-danger mr-3" (click)="captchaRef.reset()">{{ 'contact.clear' | translate }}</button>
+                          <button class="btn btn-success" (click)="sendContact();captchaRef.reset()" [disabled]="contactDetails.invalid" >{{ 'contact.send' | translate }}</button>
                         </div> 
                       </form>
                     </div>

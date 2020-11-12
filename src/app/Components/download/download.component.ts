@@ -42,6 +42,8 @@ const FILE_TYPES: {[key: string]: string} = {
 })
 export class DownloadComponent implements OnInit {
 
+  public isSecure:boolean = true;
+
   constructor(public translate: TranslateService) {
     translate.setDefaultLang("en");
   }
@@ -58,4 +60,16 @@ export class DownloadComponent implements OnInit {
       this.translate.setDefaultLang('en');
     }
   }
+  downloadFile(id:string){
+
+  }
+
+  downloadSecureFile(id:string,password:string){
+    
+  }
+
+  reset() {
+    
+  }
+
 }

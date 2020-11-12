@@ -10,7 +10,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  public captcha:string = "";
   public isSuccess:string = "";
   
   constructor(public translate: TranslateService,private contactService:ContactService) {
@@ -21,13 +20,11 @@ export class ContactComponent implements OnInit {
     emailAddress:new FormControl(null,[Validators.required,Validators.email]),
     message     :new FormControl(null,[Validators.required,Validators.minLength(50)]),
     name        :new FormControl(null,[Validators.required]),
+    recaptchaReactive :new FormControl(null,Validators.required),
   }); 
 
   ngOnInit(): void {}
 
-  resolved(captchaResponse:string) {
-    this.captcha = captchaResponse;
-  }
   changeLanguage(lang:string){
     if(lang == 'tr'){
       this.translate.setDefaultLang('tr');
@@ -35,20 +32,21 @@ export class ContactComponent implements OnInit {
       this.translate.setDefaultLang('en');
     }
   }
-  
   sendContact(){
     
-    this.contactService.addContact(this.contactDetails,this.captcha).subscribe(
+    this.contactService.addContact(this.contactDetails).subscribe(
     data =>
     { 
       this.isSuccess = "ok";
-      this.captcha = "";
     },
     error => 
     {
       this.isSuccess = "hata";
-      this.captcha = "";
     });
+  }
+  reset(){
+    console.log("resetlendi");
+
   }
 
 }

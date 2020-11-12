@@ -3,7 +3,7 @@ import { NotfoundComponent } from './Components/errors/notfound/notfound.compone
 import { DownloadComponent } from './Components/download/download.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -33,6 +33,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
     RecaptchaModule,
     HttpClientModule,
     ReactiveFormsModule,
+    RecaptchaFormsModule,
     FormsModule,
     TranslateModule.forRoot({
       loader: {
