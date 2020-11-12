@@ -13,7 +13,13 @@ private BASE_URL:string = "https://api.kayafirat.com/firatkaya-0.0.1/contact";
 constructor(private http:HttpClient) { }
 
 addContact(contact:FormGroup,captcha:string){
-  this.http.post(this.BASE_URL.concat("?captcha=").concat(captcha),contact);
+  let body = 
+  {
+    name: contact.controls['name'].value,
+    email:contact.controls['emailAddress'].value,
+    message:contact.controls['message'].value
+  }
+  return this.http.post(this.BASE_URL.concat("?captcha=").concat(captcha),body);
 }
 
 

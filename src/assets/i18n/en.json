@@ -25,8 +25,9 @@
         "emailRequired":"This place must be email.",
         "emailNotBlank":"This place can not be blank.",
         "messageRequired":"This place can not be blank.",
-        "messageMinLength":"This place minimum length must be 50."
-
+        "messageMinLength":"This place minimum length must be 50.",
+        "isSuccess":"Your message has been sent successfully. I will contact you as soon as possible.",
+        "isNotSuccess":"An error occurred while sending the message. Please try again."
         
     },
     "download" : {

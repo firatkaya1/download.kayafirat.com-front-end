@@ -25,7 +25,9 @@
         "emailRequired":"Bu alana email girilmesi zorunludur.",
         "emailNotBlank":"Bu alan boş bırakılamaz.",
         "messageRequired":"Bu alan boş bırakılamaz.",
-        "messageMinLength":"Mesajınız minimum 50 karakter içermelidir."
+        "messageMinLength":"Mesajınız minimum 50 karakter içermelidir.",
+        "isSuccess":"Mesajınız başarıyla iletilmiştir. En kısa sürede sizlerle iletişime geçeceğim.",
+        "isNotSuccess":"Mesaj iletilirken bir hata oluştu. Lütfen tekrar deneyiniz."
     },
     "download" : {
         "fileName":"Dosya Adı :",

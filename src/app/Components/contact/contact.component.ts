@@ -10,7 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  private captcha:string = "";
+  public captcha:string = "";
+  public isSuccess:string = "";
   
   constructor(public translate: TranslateService,private contactService:ContactService) {
     translate.setDefaultLang("en");
@@ -22,8 +23,7 @@ export class ContactComponent implements OnInit {
     name        :new FormControl(null,[Validators.required]),
   }); 
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   resolved(captchaResponse:string) {
     this.captcha = captchaResponse;
@@ -37,7 +37,18 @@ export class ContactComponent implements OnInit {
   }
   
   sendContact(){
-    this.contactService.addContact(this.contactDetails,this.captcha);
+    
+    this.contactService.addContact(this.contactDetails,this.captcha).subscribe(
+    data =>
+    { 
+      this.isSuccess = "ok";
+      this.captcha = "";
+    },
+    error => 
+    {
+      this.isSuccess = "hata";
+      this.captcha = "";
+    });
   }
 
 }

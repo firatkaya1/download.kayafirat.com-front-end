@@ -19,6 +19,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-9 mx-auto">
+                      <p class="text-success" *ngIf="isSuccess=='ok'" [translate]="'contact.isSuccess'"></p>
+                      <p class="text-danger" *ngIf="isSuccess=='hata'" [translate]="'contact.isNotSuccess'"></p>
+
                       <form [formGroup]="contactDetails">
                         <div class="form-group">
                           <label for="name" [translate]="'contact.name'"></label>
@@ -51,7 +54,6 @@
                             <div *ngIf="contactDetails.get('message').errors.required" [translate]="'contact.messageRequired'"></div>
                             <div *ngIf="contactDetails.get('message').errors.minlength" [translate]="'contact.messageMinLength'"></div>
                           </div>
-                        
                         </div>
                         <div class="form-group mx-auto">
                           <re-captcha (resolved)="resolved($event)" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
@@ -60,7 +62,7 @@
                         </div>
                         <div class="form-group text-right">
                           <button class="btn btn-danger mr-3">{{ 'contact.clear' | translate }}</button>
-                          <button class="btn btn-success">{{ 'contact.send' | translate }}</button>
+                          <button class="btn btn-success" (click)="sendContact()" [disabled]="contactDetails.invalid" *ngIf="captcha!.length == 0 ? false : true">{{ 'contact.send' | translate }}</button>
                         </div> 
                       </form>
                     </div>
