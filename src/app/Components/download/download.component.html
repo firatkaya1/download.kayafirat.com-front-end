@@ -53,14 +53,23 @@
                          <a href="https://github.com/firatkaya1">@firatkaya1</a>
                       </div>
                       <div class="w-100 mt-4"></div>
-                      <div class="col-md-6 mx-auto text-center mt-2">
-                        <re-captcha (resolved)="resolved($event)" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
-                        <p class="text-secondary text-sm mt-2" [translate]="'download.noBot'"></p>
+                      <div class="row" *ngIf="!isSecure">
+                        <div class="col-md-6 mx-auto text-center mt-2" >
+                          <form [formGroup]="downloadDetail" >
+                            <re-captcha #captchaRef="reCaptcha"
+                            formControlName="recaptchaReactive" 
+                            siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"></re-captcha>
+                            <small id="emailHelp" class="form-text text-muted" [translate]="'contact.noBot'"></small>
+                          </form>
+                        </div>
+                        <div class="col-md-12 text-center mb-4">
+                            <button class="btn btn-primary" (click)="downloadFile('1');captchaRef.reset();" [disabled]="downloadDetail.invalid" >İndir</button>
+                            <a routerLink="/contact" routerLinkActive="active" class="btn btn-danger ml-2">Bir sorun mu var?</a>
+                        </div>
                       </div>
-                      <div class="col-md-12 text-center mb-4">
-                          <button class="btn btn-primary" (click)="downloadFile('1')" *ngIf="!isSecure">İndir1</button>
-                          <button class="btn btn-primary" (click)="downloadSecureFile('3','1')" *ngIf="isSecure" data-toggle="modal" data-target="#openPass">İndir2</button>
-                          <a routerLink="/contact" routerLinkActive="active" class="btn btn-danger ml-2">Bir sorun mu var?</a>
+                      <div class="col-md-12 text-center mb-4" *ngIf="isSecure">
+                          <button class="btn btn-primary" (click)="downloadSecureFile('3','1')" data-toggle="modal" data-target="#openPass">İndir</button>
+                          <a routerLink="/contact" routerLinkActive="active" class="btn btn-danger ml-2" >Bir sorun mu var?</a>
                       </div>
                   </div>
                 </div>
@@ -79,25 +88,27 @@
           <img src="/assets/padlock.svg"  alt="download-icon" width="50px" height="50px">
           <b>Güvenli İndirme</b>
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="captchaRef.reset()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <p class="text-success" *ngIf="isSuccess=='ok'" [translate]="'download.isSuccess'"></p>
+        <p class="text-danger" *ngIf="isSuccess=='hata'" [translate]="'download.isNotSuccess'"></p>
         <div class="form-group">
-          <label for="emailAddress">İndirmeye çalıştığınız dosya şifrelenmiştir. Lütfen şifreyi giriniz</label>
+          <label for="emailAddress"><b>İndirmeye çalıştığınız dosya şifrelenmiştir. Lütfen şifreyi giriniz</b></label>
           <input type="password" class="form-control" id="emailAddress" aria-describedby="emailHelp">
         </div>    
-        <div class="row mx-auto text-center">
-          <div class="col-md-12 mx-auto text-center mt-2">
-            <re-captcha (resolved)="resolved($event)" (reset)="reset()" formControlName="recaptchaReactive" siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"> </re-captcha>
-          </div>  
-        </div>
-        
+        <form [formGroup]="downloadDetail" >
+          <re-captcha #captchaRef="reCaptcha"
+          formControlName="recaptchaReactive" 
+          siteKey="6LfC_bIZAAAAAAoOKHCIaj0d3O3wKINKJXH6ilGC"></re-captcha>
+          <small id="emailHelp" class="form-text text-muted" [translate]="'contact.noBot'"></small>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Çıkış</button>
-        <button type="button" class="btn btn-success">Gönder</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="captchaRef.reset()">Çıkış</button>
+        <button type="button" class="btn btn-success" (click)="downloadSecureFile('1','s');captchaRef.reset()" [disabled]="downloadDetail.invalid">Gönder</button>
       </div>
     </div>
   </div>

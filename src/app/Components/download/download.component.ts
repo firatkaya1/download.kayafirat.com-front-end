@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 
 
@@ -43,15 +44,17 @@ const FILE_TYPES: {[key: string]: string} = {
 export class DownloadComponent implements OnInit {
 
   public isSecure:boolean = true;
+  public isSuccess:string = "";
+
+  downloadDetail = new FormGroup({
+    recaptchaReactive :new FormControl(null,Validators.required),
+  }); 
 
   constructor(public translate: TranslateService) {
     translate.setDefaultLang("en");
   }
   ngOnInit(): void {
     console.log(FILE_TYPES['pdf']);
-  }
-  resolved(captchaResponse:string) {
-    console.log(captchaResponse);
   }
   changeLanguage(lang:string){
     if(lang == 'tr'){
@@ -61,7 +64,6 @@ export class DownloadComponent implements OnInit {
     }
   }
   downloadFile(id:string){
-
   }
 
   downloadSecureFile(id:string,password:string){
@@ -69,7 +71,7 @@ export class DownloadComponent implements OnInit {
   }
 
   reset() {
-    
+
   }
 
 }

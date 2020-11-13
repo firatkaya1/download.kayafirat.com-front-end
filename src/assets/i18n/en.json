@@ -39,7 +39,9 @@
         "uploadedBy":"Uploaded By :",
         "download":"Download",
         "problem":"İs there a problem ?",
-        "noBot":"Are you human ?"
+        "noBot":"Are you human ?",
+        "isSuccess":"Succesfull... Please waiting.",
+        "isNotSuccess":"Invalid password...Please try again."
     },
     "language" : {
         "tr":"Türkçe",

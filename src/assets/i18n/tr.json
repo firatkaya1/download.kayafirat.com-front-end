@@ -38,7 +38,9 @@
         "uploadedBy":"Yükleyen :",
         "download":"İndir",
         "problem":"Bir sorun mu var ?",
-        "noBot":"İnsan olduğunu kanıtla."
+        "noBot":"İnsan olduğunu kanıtla.",
+        "isSuccess":"Başarılı...İndirme başlatılıyor..",
+        "isNotSuccess":"Hatalı şifre..Lütfen tekrar deneyiniz."
     },
     "language" : {
         "tr":"Türkçe",
